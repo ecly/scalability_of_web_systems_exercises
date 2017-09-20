@@ -12,7 +12,7 @@ func (h helloHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "Hello, web")
 }
 
-func main() {
+func startHandler() {
 	http.Handle("/hello", helloHandler{})
 	err := http.ListenAndServe("127.0.0.1:8080", nil)
 	if err != nil {
