@@ -1,0 +1,4 @@
+> curl localhost:8000
+
+prints the time every second
+while this happens, other connections are blocked
