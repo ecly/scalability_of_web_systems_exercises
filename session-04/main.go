@@ -9,6 +9,7 @@ import (
 
 func main() {
 	listener, err := net.Listen("tcp", "localhost:8000")
+	conns := make([]net.Conn, 0)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -18,7 +19,8 @@ func main() {
 			log.Print(err) // e.g., connection aborted
 			continue
 		}
-		handleConn(conn) // handle one connection at a time
+		conns = append(conns, conn)
+		go handleConn(conn) // handle one connection at a time
 	}
 }
 

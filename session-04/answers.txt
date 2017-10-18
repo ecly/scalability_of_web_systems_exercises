@@ -2,3 +2,8 @@
 
 prints the time every second
 while this happens, other connections are blocked
+
+------
+
+multiple tcp connections handled by merely handling the connections
+in goroutines and storing the connections in a slice
