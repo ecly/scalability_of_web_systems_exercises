@@ -1,9 +1,13 @@
+#tcp
 > curl localhost:8000
 
 prints the time every second
 while this happens, other connections are blocked
 
-------
 
 multiple tcp connections handled by merely handling the connections
 in goroutines and storing the connections in a slice
+
+#channels
+to synchronize two goroutines, unbuffered channels should be use,
+as they the first actor will block until the other channel acts
