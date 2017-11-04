@@ -15,6 +15,7 @@
 package sum
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -43,4 +44,10 @@ func TestAll_Subtest(t *testing.T) {
 			}
 		})
 	}
+}
+
+func ExampleAll() {
+	fmt.Println(All([]int{1, 1, 1}...))
+	// Output:
+	// 3
 }
