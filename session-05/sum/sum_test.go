@@ -24,3 +24,23 @@ func TestAll(t *testing.T) {
 		t.Errorf("Sum of %v should be 6 but was %v", ints, res)
 	}
 }
+
+func TestAll_Subtest(t *testing.T) {
+	tt := []struct {
+		name string
+		vals []int
+		res  int
+	}{
+		{"postive consecutive", []int{1, 2, 3}, 6},
+		{"positive and negative", []int{-3, 1, 3}, 1},
+		{"negative consecutive", []int{-1, -2, -3}, -6},
+		{"zeros", []int{0, 0, 0}, 0},
+	}
+	for _, tc := range tt {
+		t.Run(tc.name, func(t *testing.T) {
+			if res := All(tc.vals...); res != tc.res {
+				t.Fatalf("Test %s expected %d, but got %d", tc.name, tc.res, res)
+			}
+		})
+	}
+}
