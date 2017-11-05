@@ -1,0 +1,7 @@
+iterative is faster than recursive - 
+recursive has to do additional subslicing.
+
+---
+
+additionally, using range is slower than indexed access, due to its
+nature of copying
