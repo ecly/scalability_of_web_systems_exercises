@@ -22,3 +22,17 @@ func TestRecursive(t *testing.T) {
 		t.Errorf("Sum of %v should be 6 but was %v", ints, res)
 	}
 }
+
+var q int
+
+func BenchmarkRecursive(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		q = recursive([]int{i})
+	}
+}
+
+func BenchmarkIterative(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		q = iterative([]int{i})
+	}
+}

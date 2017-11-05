@@ -46,6 +46,14 @@ func TestAll_Subtest(t *testing.T) {
 	}
 }
 
+var s int
+
+func BenchmarkAll(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		s = All(i)
+	}
+}
+
 func ExampleAll() {
 	fmt.Println(All([]int{1, 1, 1}...))
 	// Output:
