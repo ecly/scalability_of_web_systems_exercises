@@ -12,24 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package main
+package profiling
 
-import "testing"
+import (
+	"strings"
+	"testing"
+)
 
-var name string
-var ok bool
+var res []string
 
-func BenchmarkIsGopher(b *testing.B) {
+func BenchmarkFields(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		name, ok = isGopher("ecly@itu.dk")
+		res = strings.Fields("hello, dear friend")
 	}
 }
-
-//var res []string
-
-/*func BenchmarkFields(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		//go:noinline
-		strings.Fields("hello, dear friend")
-	}
-}*/
